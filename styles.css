@@ -1,0 +1,436 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #718096;
+}
+
+/* Form Styles */
+#voting-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Category Styles */
+.category {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #f7fafc;
+    border-radius: 15px;
+    border-left: 6px solid #667eea;
+}
+
+.category h3 {
+    margin-bottom: 20px;
+    color: #4a5568;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.options {
+    display: grid;
+    gap: 15px;
+}
+
+.options.kid-friendly {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.option-card {
+    display: block !important;
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid #e2e8f0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.option-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.option-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option-content {
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.option-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.option-text {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #4a5568;
+    margin-bottom: 5px;
+}
+
+.option-description {
+    font-size: 0.9em;
+    color: #718096;
+    line-height: 1.4;
+}
+
+.option-card:has(input:checked) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #5a67d8;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.option-card:has(input:checked) .option-content {
+    color: white;
+}
+
+.option-card:has(input:checked) .option-text {
+    color: white;
+}
+
+.option-card:has(input:checked) .option-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Legacy options for non-kid-friendly sections */
+.options:not(.kid-friendly) label {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1.1em;
+}
+
+.options:not(.kid-friendly) label:hover {
+    background: #edf2f7;
+    transform: translateX(5px);
+}
+
+.options:not(.kid-friendly) input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+    accent-color: #667eea;
+}
+
+.options:not(.kid-friendly) label:has(input:checked) {
+    background: #667eea;
+    color: white;
+    border-color: #5a67d8;
+}
+
+/* Button Styles */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Results Section */
+#results-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#results-section h2 {
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.results-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.control-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.control-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.control-btn.danger {
+    border-color: #e53e3e;
+    color: #e53e3e;
+}
+
+.control-btn.danger:hover {
+    background: #e53e3e;
+    color: white;
+}
+
+/* Results Content */
+.vote-item {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.vote-item h4 {
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.vote-details {
+    display: grid;
+    gap: 8px;
+}
+
+.vote-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.vote-detail strong {
+    color: #4a5568;
+}
+
+.summary-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.summary-item h4 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.summary-options {
+    display: grid;
+    gap: 10px;
+}
+
+.summary-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+
+.summary-option.winner {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+}
+
+.vote-count {
+    background: #4a5568;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    min-width: 30px;
+    text-align: center;
+}
+
+.summary-option.winner .vote-count {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.no-votes {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    padding: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .category {
+        padding: 20px;
+    }
+
+    .options.kid-friendly {
+        grid-template-columns: 1fr;
+    }
+
+    .option-card {
+        min-height: auto;
+    }
+
+    .option-content {
+        padding: 15px;
+    }
+
+    .option-icon {
+        font-size: 2.5em;
+    }
+
+    .option-text {
+        font-size: 1.1em;
+    }
+
+    .results-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .control-btn {
+        width: 100%;
+        max-width: 200px;
+        font-size: 1.1em;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .options.kid-friendly {
+        gap: 15px;
+    }
+
+    .option-content {
+        padding: 12px;
+    }
+
+    .option-icon {
+        font-size: 2em;
+    }
+
+    .category h3 {
+        font-size: 1.3em;
+    }
+
+    .submit-btn {
+        font-size: 1.3em;
+        padding: 18px;
+    }
+}

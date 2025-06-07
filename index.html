@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Vacation Voting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏖️ Family Vacation Voting 🏖️</h1>
+            <p>Help us decide on our next family adventure!</p>
+        </header>
+
+        <div id="voting-section">
+            <form id="voting-form">
+                <div class="form-group">
+                    <label for="voter-name">👋 What's your name?</label>
+                    <input type="text" id="voter-name" name="voterName" required placeholder="Type your name here...">
+                </div>
+
+                <div class="category">
+                    <h3>🏖️ Where do you want to go?</h3>
+                    <div class="options kid-friendly">
+                        <label class="option-card">
+                            <input type="radio" name="destination" value="beach" required>
+                            <div class="option-content">
+                                <div class="option-icon">🏖️</div>
+                                <div class="option-text">Beach</div>
+                                <div class="option-description">Sand and waves!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="destination" value="mountains">
+                            <div class="option-content">
+                                <div class="option-icon">⛰️</div>
+                                <div class="option-text">Mountains</div>
+                                <div class="option-description">Big hills to climb!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="destination" value="city">
+                            <div class="option-content">
+                                <div class="option-icon">🏙️</div>
+                                <div class="option-text">Big City</div>
+                                <div class="option-description">Tall buildings!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="destination" value="countryside">
+                            <div class="option-content">
+                                <div class="option-icon">🌾</div>
+                                <div class="option-text">Farm Country</div>
+                                <div class="option-description">Animals and farms!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="destination" value="national-park">
+                            <div class="option-content">
+                                <div class="option-icon">🏞️</div>
+                                <div class="option-text">Nature Park</div>
+                                <div class="option-description">Trees and animals!</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3>🏠 Where do you want to sleep?</h3>
+                    <div class="options kid-friendly">
+                        <label class="option-card">
+                            <input type="radio" name="accommodation" value="hotel" required>
+                            <div class="option-content">
+                                <div class="option-icon">🏨</div>
+                                <div class="option-text">Hotel</div>
+                                <div class="option-description">Like a big house with a pool!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="accommodation" value="rental">
+                            <div class="option-content">
+                                <div class="option-icon">🏡</div>
+                                <div class="option-text">House</div>
+                                <div class="option-description">Our own house to play in!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="accommodation" value="camping">
+                            <div class="option-content">
+                                <div class="option-icon">⛺</div>
+                                <div class="option-text">Camping</div>
+                                <div class="option-description">Sleep in a tent outside!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="accommodation" value="cabin">
+                            <div class="option-content">
+                                <div class="option-icon">🏕️</div>
+                                <div class="option-text">Cabin</div>
+                                <div class="option-description">Cozy house in the woods!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="accommodation" value="cruise">
+                            <div class="option-content">
+                                <div class="option-icon">🚢</div>
+                                <div class="option-text">Cruise Ship</div>
+                                <div class="option-description">Sleep on a big boat!</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3>🎈 What do you want to do for fun?</h3>
+                    <div class="options kid-friendly">
+                        <label class="option-card">
+                            <input type="radio" name="activity" value="relaxation" required>
+                            <div class="option-content">
+                                <div class="option-icon">😌</div>
+                                <div class="option-text">Relax</div>
+                                <div class="option-description">Rest and play quietly!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="activity" value="adventure">
+                            <div class="option-content">
+                                <div class="option-icon">🚀</div>
+                                <div class="option-text">Adventure</div>
+                                <div class="option-description">Exciting games and sports!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="activity" value="cultural">
+                            <div class="option-content">
+                                <div class="option-icon">🏛️</div>
+                                <div class="option-text">Museums</div>
+                                <div class="option-description">Cool old stuff to see!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="activity" value="nature">
+                            <div class="option-content">
+                                <div class="option-icon">🦋</div>
+                                <div class="option-text">Animals</div>
+                                <div class="option-description">See cool animals!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="activity" value="food">
+                            <div class="option-content">
+                                <div class="option-icon">🍕</div>
+                                <div class="option-text">Yummy Food</div>
+                                <div class="option-description">Try tasty new foods!</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3>☀️ What weather do you like?</h3>
+                    <div class="options kid-friendly">
+                        <label class="option-card">
+                            <input type="radio" name="climate" value="tropical" required>
+                            <div class="option-content">
+                                <div class="option-icon">🌴</div>
+                                <div class="option-text">Hot & Sunny</div>
+                                <div class="option-description">Perfect for swimming!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="climate" value="temperate">
+                            <div class="option-content">
+                                <div class="option-icon">🌤️</div>
+                                <div class="option-text">Warm</div>
+                                <div class="option-description">Nice and comfy!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="climate" value="cool">
+                            <div class="option-content">
+                                <div class="option-icon">🧥</div>
+                                <div class="option-text">Cool</div>
+                                <div class="option-description">Sweater weather!</div>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="climate" value="seasonal">
+                            <div class="option-content">
+                                <div class="option-icon">🍂</div>
+                                <div class="option-text">Changing</div>
+                                <div class="option-description">Different each day!</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn big-button">🗳️ I'm Done Voting! 🗳️</button>
+            </form>
+        </div>
+
+        <div id="results-section" style="display: none;">
+            <h2>📊 Voting Results</h2>
+            <div class="results-controls">
+                <button id="view-votes-btn" class="control-btn">View All Votes</button>
+                <button id="view-summary-btn" class="control-btn active">View Summary</button>
+                <button id="reset-votes-btn" class="control-btn danger">Reset All Votes</button>
+            </div>
+            <div id="results-content"></div>
+            <button id="vote-again-btn" class="submit-btn">Vote Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
