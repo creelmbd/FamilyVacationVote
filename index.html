@@ -15,9 +15,15 @@
 
         <div id="voting-section">
             <form id="voting-form">
-                <div class="form-group">
-                    <label for="voter-name">👋 What's your name?</label>
-                    <input type="text" id="voter-name" name="voterName" required placeholder="Type your name here...">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="voter-name">👋 What's your name?</label>
+                        <input type="text" id="voter-name" name="voterName" required placeholder="Type your name here...">
+                    </div>
+                    <div class="form-group">
+                        <label for="voter-age">🎂 How old are you?</label>
+                        <input type="number" id="voter-age" name="voterAge" min="1" max="120" placeholder="Age">
+                    </div>
                 </div>
 
                 <div class="category">

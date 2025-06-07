@@ -434,3 +434,194 @@ header p {
         padding: 18px;
     }
 }
+
+/* Add these styles to your existing styles.css file */
+
+/* Form Row Styling - Missing from your current CSS */
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Number input styling - Missing from your current CSS */
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Fix for radio button checked state - The :has() selector needs better browser support fallback */
+.option-card.selected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #5a67d8;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.option-card.selected .option-content {
+    color: white;
+}
+
+.option-card.selected .option-text {
+    color: white;
+}
+
+.option-card.selected .option-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced message styling - Currently only inline styled */
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.message-success {
+    background-color: #48bb78;
+}
+
+.message-error {
+    background-color: #e53e3e;
+}
+
+.message-info {
+    background-color: #4299e1;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Big button enhancement - Referenced in HTML but not fully styled */
+.big-button {
+    font-size: 1.4em;
+    padding: 18px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enhanced vote item styling for better visual hierarchy */
+.vote-item h4 {
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* Loading state for form submission */
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.submit-btn.loading::after {
+    content: "🔄";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Enhanced responsive design for very small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 20px 15px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .category {
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Focus visible for better accessibility */
+.option-card:focus-within {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Enhanced summary styling */
+.summary-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+
+    #voting-section {
+        display: none;
+    }
+
+    .results-controls {
+        display: none;
+    }
+
+    .submit-btn {
+        display: none;
+    }
+}

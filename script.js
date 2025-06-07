@@ -26,15 +26,33 @@ class VacationVoting {
         e.preventDefault();
 
         const formData = new FormData(e.target);
+
+        // Validate that name is provided
+        const voterName = formData.get('voterName');
+        if (!voterName || voterName.trim() === '') {
+            this.showMessage('Please enter your name before voting!', 'error');
+            return;
+        }
+
+        // Get age if provided (optional since your HTML doesn't have age field yet)
+        const voterAge = formData.get('voterAge') || 'Not specified';
+
         const vote = {
             id: Date.now(),
             timestamp: new Date().toISOString(),
-            voterName: formData.get('voterName'),
+            voterName: voterName.trim(),
+            voterAge: voterAge,
             destination: formData.get('destination'),
             accommodation: formData.get('accommodation'),
             activity: formData.get('activity'),
             climate: formData.get('climate')
         };
+
+        // Validate that all required fields are selected
+        if (!vote.destination || !vote.accommodation || !vote.activity || !vote.climate) {
+            this.showMessage('Please make a selection for all categories!', 'error');
+            return;
+        }
 
         // Check if voter has already voted
         const existingVoteIndex = this.votes.findIndex(v => v.voterName.toLowerCase() === vote.voterName.toLowerCase());
@@ -50,14 +68,18 @@ class VacationVoting {
         }
 
         this.saveVotes();
-        this.showResults();
-        this.showSummary();
+
+        // Show success message first
+        this.showMessage(`Thank you, ${vote.voterName}! Your vote has been recorded.`, 'success');
 
         // Reset form
         e.target.reset();
 
-        // Show success message
-        this.showMessage(`Thank you, ${vote.voterName}! Your vote has been recorded.`, 'success');
+        // Wait a moment then show results
+        setTimeout(() => {
+            this.showResults();
+            this.showSummary();
+        }, 1500);
     }
 
     showVotingForm() {
@@ -84,6 +106,7 @@ class VacationVoting {
             html += `
                 <div class="vote-item">
                     <h4>🗳️ ${vote.voterName}'s Vote</h4>
+                    ${vote.voterAge && vote.voterAge !== 'Not specified' ? `<p><strong>Age:</strong> ${vote.voterAge}</p>` : ''}
                     <div class="vote-details">
                         <div class="vote-detail">
                             <span><strong>Destination:</strong></span>
@@ -125,6 +148,16 @@ class VacationVoting {
         const summary = this.calculateSummary();
         let html = '';
 
+        // Show voter count
+        html += `
+            <div class="summary-item">
+                <h4>👥 Total Voters</h4>
+                <div style="text-align: center; font-size: 2em; color: #667eea; font-weight: bold;">
+                    ${this.votes.length} ${this.votes.length === 1 ? 'person' : 'people'} voted!
+                </div>
+            </div>
+        `;
+
         // Categories with their display names and emojis
         const categories = {
             destination: { name: '🏖️ Where do you want to go?', options: this.getDestinationOptions() },
@@ -146,10 +179,11 @@ class VacationVoting {
 
             sortedOptions.forEach(([option, count], index) => {
                 const isWinner = index === 0 && count > 0;
+                const percentage = this.votes.length > 0 ? Math.round((count / this.votes.length) * 100) : 0;
                 html += `
                     <div class="summary-option ${isWinner ? 'winner' : ''}">
                         <span>${this.formatOption(option)}</span>
-                        <span class="vote-count">${count}</span>
+                        <span class="vote-count">${count} (${percentage}%)</span>
                     </div>
                 `;
             });
@@ -313,32 +347,6 @@ class VacationVoting {
         `;
 
         // Set background color based on type
-        const colors = {
-            success: '#48bb78',
-            error: '#e53e3e',
-            info: '#4299e1'
-        };
-        messageEl.style.backgroundColor = colors[type] || colors.info;
-
-        document.body.appendChild(messageEl);
-
-        // Animate in
-        setTimeout(() => {
-            messageEl.style.opacity = '1';
-            messageEl.style.transform = 'translateY(0)';
-        }, 100);
-
-        // Animate out and remove
-        setTimeout(() => {
-            messageEl.style.opacity = '0';
-            messageEl.style.transform = 'translateY(-50px)';
-            setTimeout(() => {
-                if (messageEl.parentNode) {
-                    messageEl.parentNode.removeChild(messageEl);
-                }
-            }, 400);
-        }, 4000);
-    }        // Set background color based on type
         const colors = {
             success: '#48bb78',
             error: '#e53e3e',
