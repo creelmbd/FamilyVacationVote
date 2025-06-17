@@ -11,16 +11,28 @@ class VacationVoting {
     }
 
     bindEvents() {
-        // Form submission
-        const form = document.getElementById('voting-form');
-        form.addEventListener('submit', (e) => this.handleVoteSubmission(e));
+    // Form submission
+    const form = document.getElementById('voting-form');
+    form.addEventListener('submit', (e) => this.handleVoteSubmission(e));
 
-        // Results controls
-        document.getElementById('view-votes-btn').addEventListener('click', () => this.showAllVotes());
-        document.getElementById('view-summary-btn').addEventListener('click', () => this.showSummary());
-        document.getElementById('reset-votes-btn').addEventListener('click', () => this.resetVotes());
-        document.getElementById('vote-again-btn').addEventListener('click', () => this.showVotingForm());
-    }
+    // Results controls
+    document.getElementById('view-votes-btn').addEventListener('click', () => this.showAllVotes());
+    document.getElementById('view-summary-btn').addEventListener('click', () => this.showSummary());
+    document.getElementById('reset-votes-btn').addEventListener('click', () => this.resetVotes());
+    document.getElementById('vote-again-btn').addEventListener('click', () => this.showVotingForm());
+
+    // ADD THIS NEW SECTION: Radio button selection handling for better browser compatibility
+    document.querySelectorAll('.option-card input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Remove selected class from all cards in this group
+            document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
+                r.closest('.option-card').classList.remove('selected');
+            });
+            // Add selected class to this card
+            this.closest('.option-card').classList.add('selected');
+        });
+    });
+}
 
     handleVoteSubmission(e) {
         e.preventDefault();
